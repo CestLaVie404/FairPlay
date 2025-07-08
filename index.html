@@ -84,14 +84,14 @@
       font-size: 0.9em;
     }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .grid-container {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: 1fr;
     padding: 10px;
-    gap: 10px;
+    gap: 12px;
   }
   .card p {
-    font-size: 12px;
+    font-size: 14px;
     white-space: normal;
   }
   header h1 {
@@ -102,6 +102,23 @@
     padding: 6px 8px;
   }
 }
+
+@media (max-width: 400px) {
+  .card p {
+    font-size: 13px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
     
   </style>
 </head>
