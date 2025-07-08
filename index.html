@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fair Play Hamm  Übersicht</title>
+  <title>Fair Play Hamm Übersicht</title>
   <style>
     :root {
       --bg: #111;
@@ -12,30 +11,44 @@
       --card-bg: #222;
       --accent: #000000;
     }
+
     body.light {
       --bg: #fdfdfd;
       --text: #111;
       --card-bg: #c9c4c4;
     }
-    body {
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
+      max-width: 100%;
+      overflow-x: hidden;
       transition: background 0.3s, color 0.3s;
     }
+
     header {
       padding: 20px;
       background-color: var(--card-bg);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
+
     header h1 {
       margin: 0;
       font-family: 'Courier New', monospace;
       color: var(--accent);
+      font-size: 24px;
     }
+
     .mode-toggle {
       background: none;
       border: 1px solid var(--accent);
@@ -44,13 +57,16 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 14px;
+      margin-top: 10px;
     }
+
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 16px;
       padding: 20px;
     }
+
     .card {
       background-color: var(--card-bg);
       border-radius: 12px;
@@ -61,21 +77,24 @@
       text-decoration: none;
       color: inherit;
     }
+
     .card:hover {
       transform: scale(1.03);
     }
+
     .card img {
       width: 100%;
-      display: block;
       height: auto;
+      display: block;
     }
+
     .card p {
       margin: 10px;
       font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      word-wrap: break-word;
     }
+
     footer {
       background-color: var(--card-bg);
       padding: 20px;
@@ -84,42 +103,24 @@
       font-size: 0.9em;
     }
 
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    padding: 10px;
-    gap: 12px;
-  }
-  .card p {
-    font-size: 14px;
-    white-space: normal;
-  }
-  header h1 {
-    font-size: 18px;
-  }
-  .mode-toggle {
-    font-size: 12px;
-    padding: 6px 8px;
-  }
-}
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 20px;
+      }
+      .mode-toggle {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+      .card p {
+        font-size: 13.5px;
+      }
+    }
 
-@media (max-width: 400px) {
-  .card p {
-    font-size: 13px;
-  }
-}
-
-body {
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-    
+    @media (max-width: 480px) {
+      .card p {
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,52 +128,46 @@ img {
     <h1>Fair Play Hamm</h1>
     <button class="mode-toggle" onclick="toggleMode()">🌙 Dark/Light</button>
   </header>
+
   <main class="grid-container">
     <a class="card" href="products/produkt-mario.html">
       <img src="images/mario_snes.jpg" alt="Super Mario World" />
-      <p>Super Mario World (SNES) </p>
+      <p>Super Mario World (SNES)</p>
     </a>
     <a class="card" href="products/produkt-sonic.html">
       <img src="images/sonic_md.jpg" alt="Sonic the Hedgehog" />
       <p>Sonic (Mega Drive) – 19,90 €</p>
     </a>
-
     <a class="card" href="products/produkt-zelda.html">
-  <img src="images/zelda_n64.jpg" alt="zelda ocarina of time" />
-  <p>zelda ocarina of time</p>
-</a>
-
+      <img src="images/zelda_n64.jpg" alt="Zelda Ocarina of Time" />
+      <p>Zelda – Ocarina of Time</p>
+    </a>
     <a class="card" href="products/donkeykong.html">
-  <img src="images/donkeykong.jpg" alt="donkeykong" />
-  <p>DonkeyKong</p>
-</a>
-
-<a class="card" href="#">
-  <img src="images/mortal_kombat.jpg" alt="mortalkombat" />
-  <p>Mortal Kombat</p>
-</a>
-
-<a class="card" href="#">
-  <img src="images/Chrono_Trigger.jpg" alt="chrono trigger" />
-  <p>Chrono Trigger</p>
-</a>
-
-<a class="card" href="#">
-  <img src="images/terranigma.jpg" alt="terranigma" />
-  <p>Terranigma</p>
-</a>
-
-<a class="card" href="#">
-  <img src="images/zelda_nes.jpg" alt="zelda" />
-  <p>zelda  </p>
-</a>
-
-<a class="card" href="#">
-  <img src="images/SMT2.jpg" alt="smt2" />
-  <p>Shin Megami Tensei 2  </p>
-</a>
-
+      <img src="images/donkeykong.jpg" alt="Donkey Kong" />
+      <p>Donkey Kong</p>
+    </a>
+    <a class="card" href="#">
+      <img src="images/mortal_kombat.jpg" alt="Mortal Kombat" />
+      <p>Mortal Kombat</p>
+    </a>
+    <a class="card" href="#">
+      <img src="images/Chrono_Trigger.jpg" alt="Chrono Trigger" />
+      <p>Chrono Trigger</p>
+    </a>
+    <a class="card" href="#">
+      <img src="images/terranigma.jpg" alt="Terranigma" />
+      <p>Terranigma</p>
+    </a>
+    <a class="card" href="#">
+      <img src="images/zelda_nes.jpg" alt="Zelda NES" />
+      <p>Zelda (NES)</p>
+    </a>
+    <a class="card" href="#">
+      <img src="images/SMT2.jpg" alt="Shin Megami Tensei 2" />
+      <p>Shin Megami Tensei 2</p>
+    </a>
   </main>
+
   <footer>
     <p>Fair Play Hamm – Großer Sandweg 84, 59065 Hamm • Mo–Sa 13–19 Uhr</p>
     <p>Kontakt: dummyadresse@retrogames.de</p>
@@ -183,20 +178,15 @@ img {
       document.body.classList.toggle('light');
       localStorage.setItem('mode', document.body.classList.contains('light') ? 'light' : 'dark');
     }
+
     window.onload = () => {
       const mode = localStorage.getItem('mode');
       if (mode === 'light') document.body.classList.add('light');
     };
 
-//verhindert ungewolltes scrollen zum anfang bei nicht verlinkten kacheln
-document.querySelectorAll('a[href="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault(); // verhindert das Springen
-  });
-});
-
-
-
+    document.querySelectorAll('a[href="#"]').forEach(link => {
+      link.addEventListener('click', e => e.preventDefault());
+    });
   </script>
 </body>
 </html>
