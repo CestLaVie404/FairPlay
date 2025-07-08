@@ -4,124 +4,133 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fair Play Hamm Übersicht</title>
-  <style>
-    :root {
-      --bg: #111;
-      --text: #f0f0f0;
-      --card-bg: #222;
-      --accent: #000000;
-    }
+<style>
+  :root {
+    --bg: #111;
+    --text: #f0f0f0;
+    --card-bg: #222;
+    --accent: #000000;
+  }
 
-    body.light {
-      --bg: #fdfdfd;
-      --text: #111;
-      --card-bg: #c9c4c4;
-    }
+  body.light {
+    --bg: #fdfdfd;
+    --text: #111;
+    --card-bg: #c9c4c4;
+  }
 
-    * {
-      box-sizing: border-box;
-    }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+  }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      max-width: 100%;
-      overflow-x: hidden;
-      transition: background 0.3s, color 0.3s;
-    }
+  header {
+    padding: 20px;
+    background-color: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    header {
-      padding: 20px;
-      background-color: var(--card-bg);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+  header h1 {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    color: var(--accent);
+  }
 
-    header h1 {
-      margin: 0;
-      font-family: 'Courier New', monospace;
-      color: var(--accent);
-      font-size: 24px;
-    }
+  .mode-toggle {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
 
-    .mode-toggle {
-      background: none;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      margin-top: 10px;
-    }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    padding: 20px;
+  }
 
+  .card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 8, 5, 0.85);
+    transition: transform 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+  .card img {
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+
+  .card p {
+    margin: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  footer {
+    background-color: var(--card-bg);
+    padding: 20px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9em;
+  }
+
+  /* --- Mobile Optimierung --- */
+  @media (max-width: 768px) {
     .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      padding: 20px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 8, 5, 0.85);
-      transition: transform 0.2s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-    }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
+      grid-template-columns: 1fr; /* Eine Karte pro Zeile */
+      padding: 10px;
+      gap: 12px;
     }
 
     .card p {
-      margin: 10px;
-      font-size: 14px;
+      font-size: 15px;
       white-space: normal;
-      word-wrap: break-word;
     }
 
-    footer {
-      background-color: var(--card-bg);
-      padding: 20px;
-      text-align: center;
-      color: #888;
-      font-size: 0.9em;
+    header h1 {
+      font-size: 18px;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 20px;
-      }
-      .mode-toggle {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-      .card p {
-        font-size: 13.5px;
-      }
+    .mode-toggle {
+      font-size: 12px;
+      padding: 6px 8px;
     }
+  }
 
-    @media (max-width: 480px) {
-      .card p {
-        font-size: 13px;
-      }
+  @media (max-width: 400px) {
+    .card p {
+      font-size: 14px;
     }
-  </style>
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
 </head>
 <body>
   <header>
