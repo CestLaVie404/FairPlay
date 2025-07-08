@@ -83,6 +83,26 @@
       color: #888;
       font-size: 0.9em;
     }
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    padding: 10px;
+    gap: 10px;
+  }
+  .card p {
+    font-size: 12px;
+    white-space: normal;
+  }
+  header h1 {
+    font-size: 18px;
+  }
+  .mode-toggle {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+    
   </style>
 </head>
 <body>
