@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fair Play Hamm – Retro-Shop</title>
+  <link rel="stylesheet" href="../styles.css" />
+
+<style>
+        .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      display: none;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border: 5px solid white;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header_spacer">
+  <div class="sticky header_widget base_widget">
+  <div class="primary_header">
+    <h1 class="title" titel="randomtitel">
+      <a href="">
+        <img src="../images/FPH_logo_2.png" height="40" width="600" class="logo" alt="Fair Play Hamm Logo" />
+       <!-- <span>Fair Play Hamm</span> --> 
+      </a>
+    </h1>
+      <div class="header_buttons">
+          <a class="header_buttons browse_btn" href="#" data-label="browse">
+              
+          </a>
+          <a class="header_buttons jams_btn" href="#" data-label="jams">
+              
+          </a>
+           <a class="header_buttons jams_btn" href="#" data-label="jams">
+              
+          </a>
+        </div>
+      </div>
+   </div>
+</div>
+
+<div class="index_page page_widget base_widget ready">
+  <div class="sidebar_shroud"></div>
+    <div class="index_sidebar">
+      <div class="scrolling_content">
+        <div class="sidebar_browse">
+         <section class="sidebar_browse_group">
+    
+            </section>
+         <section class="sidebar_browse_group">
+    
+          </section>
+          <section class="sidebar_browse_group">
+  
+          </section>
+          <section class="sidebar_browse_group">
+ 
+          </section>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="main_column" tableindex="-1">
+      <div class="anon_intro">
+        <strong>Fair Play Hamm:</strong> Ein simpler Showcase von aktuellen Highlights im Laden
+      </div>
+      <section class="large_promo_section">
+
+      </section>
+          <section class="game_section featured_bundles">
+      <div class="section_header"> </div>
+    </section>
+
+    <div class="grid_groups">
+      <section class="game_section">
+        <div class="featured_game_grid_widget">
+
+          <section class="grid-container">
+            
+             <a class="card" href="#img1" data-category="snes">
+            <header style="background-color: #ffd900;"></header>
+            <img src="../images/atelieriris3_front.jpg" height="200" width="200"  />
+            <p></p>
+            </a>
+            <div id="img1" class="lightbox" onclick="location.hash=''">
+            <img src="../images/atelieriris3_front.jpg" alt="Großansicht Modul">
+            </div>
+
+            <a class="card" href="#img2" data-category="snes">
+            <header style="background-color: #ffd900;"></header>
+            <img src="../images/atelieriris3_back.jpg" height="200" width="200"  />
+            <p></p>
+            </a>
+            <div id="img2" class="lightbox" onclick="location.hash=''">
+            <img src="../images/atelieriris3_back.jpg" alt="Großansicht Verpackung">
+            </div>
+
+            <a class="card" href="#img3" data-category="snes">
+            <header style="background-color: #ffd900;"></header>
+            <img src="../images/atelieriris3_inner.jpg" height="200" width="200"  />
+            <p></p>
+            </a>
+            <div id="img3" class="lightbox" onclick="location.hash=''">
+            <img src="../images/atelieriris3_inner.jpg" alt="Großansicht Anleitung">
+            </div>                  
+
+          </section>
+
+   <p><a href="../index.html">← Zurück zur Übersicht</a></p>
+
+        </div>
+      </section>
+      
+    </div>
+
+    </div>
+
+
+
+
+
+</div>
+
+ <script>
+    // Filterfunktion
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    const modeToggle = document.getElementById('modeToggle');
+
+    modeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-mode');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+
+
+</body>
+</html>
