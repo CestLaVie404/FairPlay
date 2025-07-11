@@ -2,160 +2,241 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fair Play Hamm – Retro-Shop</title>
-
-  <!-- Sofortiges Setzen der Klasse vor Rendering -->
-  <script>
-    (function() {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'light') {
-        document.documentElement.classList.add('light-mode');
-      } else {
-        document.documentElement.classList.remove('light-mode');
-      }
-    })();
-  </script>
-
   <style>
     :root {
-      --bg-light: #332f35;
-      --text-light: #222;
-      --card-bg-light: #ffffff;
-
-      --bg-dark: #111;
-      --text-dark: #f0f0f0;
-      --card-bg-dark: #181818;
-
+      --bg: #1e1e1e;
+      --text: #f0f0f0;
+      --card-bg: #2a2a2a;
       --accent: #00ffae;
+
+--itchio_white_back: #fff;
+  --itchio_gray_back: #F4F4F4;
+  --itchio_bg_color: var(--itchio_white_back);
+  --itchio_body_color: #222;
+  --itchio_body_color_gray: #767676;
+  --itchio_body_color_med: #434343;
+  --itchio_body_color_light: #606060;
+  --itchio_body_color_lighter: #858585;
+  --itchio_border_color: #dadada;
+  --itchio_edge_border_color: #cdcdcd;
+  --itchio_input_border_color: #cdcdcd;
+  --itchio_input_focus_color: #361275;
+  --itchio_light_highlight: #FFF0F0;
+  --itchio_warning_bg: #fffdbd;
+  --itchio_target_bg: #D7FCAF;
+
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      transition: background 0.3s, color 0.3s;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
+  font-family: Lato, sans-serif;
+  font-family: var(--itchio_default_font, Lato),sans-serif;
+  background: var(--itchio_gray_back);
+  color: var(--itchio_body_color);
+  margin: 0;
+  font-size: 13px;
+}
 
-    html.light-mode body {
-      background-color: var(--bg-light);
-      color: var(--text-light);
-    }
 
-    header {
-     padding: 20px 40px;
-  background: linear-gradient(135deg, #1f1c23 0%, #1f1c23 100%);
+
+ .header_spacer {
+  height: 50px;
+}
+.header_widget.sticky {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+.header_widget {
+  height: 50px;
+  position: relative;
+}
+.header_widget .primary_header {
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  border-bottom: 4px solid #000000;
-  margin-bottom:  30px;
-    }
-
-    html.light-mode header {
-      background-color: var(--card-bg-light);
-    }
-
-    header h1 {
-      font-family: 'Courier New', monospace;
-      margin: 0;
-      font-size: 24px;
-    }
-
-.logo {
-  height: 40px; /* oder 30px, je nach gewünschter Größe */
-  width: auto;
-  margin-right: 12px; /* optional für Abstand zum Text */
+  font-size: 16px;
+  background: var(--itchio_ui_bg, #40434E);
+  background-color: var(--itchio_white_back);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding: 0 20px 0 22px;
+  color: var(--itchio_body_color);
+  height: 50px;
+  position: relative;
+  z-index: 100;
 }
-
-.mode-toggle {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: inherit;
-  border: 2px solid white;
-  border-radius: 8px;
-  padding: 8px 16px;
-  cursor: pointer;
+.header_widget .header_buttons {
+display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 16px;
   font-weight: bold;
-  transition: background 0.3s;
+  color: inherit;
+  margin: 0 20px;
+  position: relative;
+  padding: 5px 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+  height: 100%;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+}
+.header_widget h1 {
+  margin: 0;
+}
+.index_page .index_sidebar {
+  --itchio_gutter_width: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  position: fixed;
+  overflow: hidden;
+  width: 260px;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--itchio_gray_back);
+}
+.index_page .index_sidebar .scrolling_content {
+  padding: 20px 0;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.index_page .index_sidebar .sidebar_browse {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.index_page .index_sidebar .sidebar_browse_group {
+  padding: 0 var(--itchio_gutter_width);
+}
+.index_page .index_sidebar .sidebar_browse_group .browse_filters {
+  margin-left: -10px;
+  margin-right: -10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.index_page .index_sidebar .sidebar_browse_group .browse_filters a {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 3px 10px;
+  box-sizing: border-box;
+  min-height: 27px;
+  width: 50%;
+  color: inherit;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.index_page .index_sidebar .sidebar_browse_group .browse_filters a:hover {
+  text-decoration: underline;
+  color: #da2c49;
+  opacity: 1;
 }
 
-body.light-mode .mode-toggle {
-  border-color: #00ffae;
-  background-color: rgba(0, 255, 174, 0.1);
+.index_page .main_column {
+  margin-left: 260px;
+  overflow: hidden;
+  background-color: var(--itchio_white_back);
+}
+.index_page .large_promo_section {
+  background: black;
+}
+.index_page .anon_intro {
+  font-size: 16px;
+  padding: 15px var(--itchio_gutter_width, 40px);
+  background-color: var(--itchio_gray_back);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.1);
+}
+.index_page .anon_intro strong {
+  font-weight: 900;
+}
+.index_page .game_section {
+  max-width: 1680px;
+  margin-top: var(--itchio_game_section_gap, 40px);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 var(--itchio_gutter_width, 40px);
+}
+.index_page .section_header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.index_page .game_section .featured_game_grid_widget {
+  margin-top: 5px;
+}
+.main_column .featured_game_grid_widget {
+  --itchio_grid_gap: 10px;
+  --itchio_grid_cell_width: 218px;
+  --itchio_grid_cell_columns: 5;
+  grid-template-columns: repeat(5, 218px);
+}
+.featured_game_grid_widget .game_cell {
+  margin-bottom: 0;
+}
+.main_column .featured_game_grid_widget {
+--itchio_grid_gap: 10px;
+  --itchio_grid_cell_width: 218px;
+  --itchio_grid_cell_columns: 5;
+  grid-template-columns: repeat(5, 218px);
+}
+.index_game_cell_widget .bordered {
+  position: relative;
+  background: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+  padding-bottom: 79.3650793651%;
+  box-sizing: border-box;
+}
+.index_game_cell_widget .label {
+  font-size: 14px;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+.index_game_cell_widget .label > .title {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
 }
 
-.mode-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-    .filter-bar {
-      background: linear-gradient(135deg, #867f8d 0%, #a198a9 100%);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 10px 20px;
-      justify-content: center;
-      max-width: 1000px;   /* Begrenzte Breite */
-      margin: 0 auto;       /* Zentrierung */
-      margin-bottom:  30px;
-    }
-
-    .filter-btn {
-      background-color: transparent;
-      border: none;
-      border-radius: 8px;
-      padding: 6px;
-      cursor: pointer;
-      width: 180px;
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s, background 0.3s;
-    }
-
-    .filter-btn img {
-      max-height: 140px;
-      max-width: 170px;
-      object-fit: contain;
-    }
-
-    .filter-btn:hover {
-      transform: scale(1.1);
-      background-color: rgba(0, 255, 174, 0.1);
-    }
 
     .grid-container {
-      background: linear-gradient(135deg, #332f35 0%, #332f35 100%);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      padding: 20px;
-        max-width: 1000px;   /* Begrenzte Breite */
-      margin: 0 auto;       /* Zentrierung */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 0.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
-      background-color: var(--card-bg-dark);
-      border-radius: 10px;
+      background-color: #ffffff;
+      border: 1px solid #dbdbdb;
+      box-shadow: 0 0 10px rgba(34, 34, 34, 0.3);
+      border-radius: 8px;
       overflow: hidden;
       text-decoration: none;
       color: inherit;
-      box-shadow: 0 0 10px rgba(0, 255, 174, 0.3);
-      transition: transform 0.2s;
-    }
-
-    html.light-mode .card {
-      background-color: var(--card-bg-light);
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+      max-width: 300px;
     }
 
     .card:hover {
-      transform: scale(1.13);
+      transform: translateY(-3px);
     }
 
     .card img {
@@ -164,137 +245,194 @@ body.light-mode .mode-toggle {
     }
 
     .card p {
-      margin: 10px;
-      font-size: 14px;
+      padding: 0.8rem;
+      font-size: 0.9rem;
     }
 
-    footer {
-      background-color: var(--card-bg-dark);
-      padding: 20px;
-      text-align: center;
-      color: #888;
-      font-size: 0.9em;
-    }
 
-    html.light-mode footer {
-      background-color: var(--card-bg-light);
-      color: #555;
-    }
 
-    @media (max-width: 768px) {
-      .grid-container {
-        grid-template-columns: 1fr;
-      }
-
-      .filter-btn {
-        width: 60px;
-        height: 50px;
-      }
-
-      .filter-btn img {
-        max-height: 30px;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <header>
-      <div class="logo-title">
-    <img src="images/FPH_logo_2.png" alt="Fair Play Hamm Logo" class="logo" />
-   
-  </div>
-    <button class="mode-toggle" id="modeToggle">Dark/Light</button>
-  </header>
+<div class="header_spacer">
+  <div class="sticky header_widget base_widget">
+  <div class="primary_header">
+    <h1 class="title" titel="randomtitel">
+      <a href="">
+        <img src="images/FPH_logo_2.png" height="40" width="600" class="logo" alt="Fair Play Hamm Logo" />
+       <!-- <span>Fair Play Hamm</span> --> 
+      </a>
+    </h1>
+      <div class="header_buttons">
+          <a class="header_buttons browse_btn" href="#" data-label="browse">
+              Spiele
+          </a>
+          <a class="header_buttons jams_btn" href="#" data-label="jams">
+              Konsolen
+          </a>
+           <a class="header_buttons jams_btn" href="#" data-label="jams">
+              Merch
+          </a>
+        </div>
+      </div>
+   </div>
+</div>
 
-  <!-- KATEGORIE BUTTONS -->
-  <div class="filter-bar">
-    <button class="filter-btn" data-filter="nintendo">
-      <img src="images/nintendo.png" alt="Nintendo" />
-    </button>
-    <button class="filter-btn" data-filter="nintendo64">
-      <img src="images/nintendo64.png" alt="Nintendo64" />
-    </button>
-    <button class="filter-btn" data-filter="sega">
-      <img src="images/sega.png" alt="Sega" />
-    </button>
-    <button class="filter-btn" data-filter="playstation">
-      <img src="images/playstation.png" alt="PlayStation" />
-    </button>
-    <button class="filter-btn" data-filter="xbox">
-      <img src="images/xbox.png" alt="Xbox" />
-    </button>
-    <button class="filter-btn" data-filter="all">
-      <img src="images/logos/all.png" alt="Alle Kategorien" />
-    </button>
-    <button class="filter-btn" data-filter="Videos">
-      <img src="images/logos/all.png" alt="Videos" />
-    </button>
-  </div>
+<div class="index_page page_widget base_widget ready">
+  <div class="sidebar_shroud"></div>
+    <div class="index_sidebar">
+      <div class="scrolling_content">
+        <div class="sidebar_browse">
+         <section class="sidebar_browse_group">
+          <h2>Genre</h2>
+            <div class="browse_filters">
+             <a href="#">Action</a>
+             <a href="#">Adventure</a>
+             <a href="#">Autorennen</a>
+             <a href="#">RPG</a>
+             <a href="#">test1</a>
+             <a href="#">test1</a>
+             <a href="#">test1</a>
+             <a href="#">test1</a>
+            </div>
+            </section>
+         <section class="sidebar_browse_group">
+          <h2>Konsolen</h2>
+              <div class="browse_filters">
+             <a href="#" class="filter-btn" data-filter="nes">Nintendo Entertainment System</a>
+             <a href="#" class="filter-btn" data-filter="snes">Super Nintendo.</a>
+             <a href="#" class="filter-btn" data-filter="megadrive">Mega Drive</a>
+             <a href="#" class="filter-btn" data-filter="genesis">Genesis</a>
+             <a href="#" class="filter-btn" data-filter="dreamcast">Dreamcast.</a>
+             <a href="#" class="filter-btn" data-filter="playstation">Playstation</a>
+             <a href="#" class="filter-btn" data-filter="wonderswan">Wonderswan</a>
+             <a href="#" class="filter-btn" data-filter="n64">N64</a>
+             <a href="#" class="filter-btn" data-filter="all">Alle</a>
+            </div>
+          </section>
+          <section class="sidebar_browse_group">
+          <h2>Merchandise</h2>
+                  <div class="browse_filters">
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">tLoren Ipson</a>
+             <a href="#">Loren Ipson</a>
+            </div>
+          </section>
+                   <section class="sidebar_browse_group">
+          <h2>Anderes</h2>
+                  <div class="browse_filters">
+                <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">Loren Ipson</a>
+             <a href="#">tLoren Ipson</a>
+             <a href="#">Loren Ipson</a>
+            </div>
+          </section>
+        </div>
+    </div>
+    </div>
 
-  <!-- KACHELN -->
-  <main class="grid-container">
 
-    <a class="card" href="products/produkt-mario.html" data-category="nintendo">
-      <img src="images/mario_snes.jpg" alt="Super Mario World" />
-      <p>Super Mario World (SNES)</p>
-    </a>
-    <a class="card" href="products/donkeykong.html" data-category="nintendo">
-      <img src="images/donkeykong.jpg" alt="Donkey Kong" />
-      <p>Donkey Kong</p>
-    </a>
-    <a class="card" href="products/mortalkombat.html" data-category="nintendo">
-      <img src="images/mortal_kombat.jpg" alt="Mortal Kombat" />
-      <p>Mortal Kombat</p>
-    </a>
-    <a class="card" href="products/chronotrigger.html" data-category="nintendo">
-      <img src="images/Chrono_Trigger.jpg" alt="Chrono Trigger" />
-      <p>Chrono Trigger</p>
-    </a>
-    <a class="card" href="products/produkt-zelda.html" data-category="nintendo64">
-      <img src="images/zelda_n64.jpg" alt="Zelda Ocarina of Time" />
-      <p>Zelda – Ocarina of Time</p>
-    </a>
-    <a class="card" href="products/produkt-sonic.html" data-category="sega">
-      <img src="images/sonic_md.jpg" alt="Sonic the Hedgehog" />
-      <p>Sonic (Mega Drive)</p>
-    </a>
-    <a class="card" href="products/produkt-ff7.html" data-category="playstation">
-      <img src="images/ff7.jpg" alt="Final Fantasy VII" />
-      <p>Final Fantasy VII (PS1)</p>
-    </a>
-    <a class="card" href="products/produkt-halo.html" data-category="xbox">
-      <img src="images/HaloCombatEvolved.jpg" alt="Halo Combat Evolved" />
-      <p>Halo (Xbox)</p>
-    </a>
+    <div class="main_column" tableindex="-1">
+      <div class="anon_intro">
+        <strong>Fair Play Hamm:</strong> Ein simpler Showcase von aktuellen Highlights im Laden
+      </div>
+      <section class="large_promo_section">
 
-    <a class="card" href="#" data-category="nintendo">
-      <img src="images/dummy.jpeg" alt="Dummy" />
-      <p>Dummy</p>
-    </a>
+      </section>
+          <section class="game_section featured_bundles">
+      <div class="section_header"> <h2>Neues</h2> </div>
+    </section>
 
-    <a class="card" href="https://www.youtube.com/watch?v=vSz97YSxqLo" data-category="Videos" target="_blank">
-      <img src="https://img.youtube.com/vi/vSz97YSxqLo/hqdefault.jpg" alt="SNES Spot" />
-      <p>Aktuelles Video</p>
-    </a>
+    <div class="grid_groups">
+      <section class="game_section">
+        <div class="featured_game_grid_widget">
 
-        <a class="card" href="https://www.youtube.com/watch?v=n_1MiA_eoDA" data-category="Videos" target="_blank">
-      <img src="https://img.youtube.com/vi/n_1MiA_eoDA/hqdefault.jpg" alt="SNES Spot" />
-      <p>Aktuelles Video</p>
-    </a>
+          <section class="grid-container">
+                <a class="card" href="products/produkt-mario.html" data-category="snes">
+                    <header style="background-color: #ffd900;">Titel</header>
+                    <img src="images/mario_snes.jpg" height="200" width="200" alt="Super Mario World" />
+                    <p>Zusätzlicher Text</p>
+                  </a>
+                  <a class="card" href="products/donkeykong.html" data-category="snes">
+                    <header style="background-color: #ffd900;">Titel</header>
+                    <img src="images/donkeykong.jpg" height="200" width="200" alt="Donkey Kong" />
+                    <p>Zusätzlicher Text</p>
+                  </a>
+                  <a class="card" href="products/mortalkombat.html" data-category="snes">
+                    <header style="background-color: #ffd900;">Titel</header>
+                    <img src="images/mortal_kombat.jpg" height="200" width="200" alt="Mortal Kombat" />
+                    <p>Zusätzlicher Text</p>
+                  </a>
 
-        <a class="card" href="https://www.youtube.com/watch?v=1cAsF3KyllE" data-category="Videos" target="_blank">
-      <img src="https://img.youtube.com/vi/1cAsF3KyllE/hqdefault.jpg" alt="SNES Spot" />
-      <p>Aktuelles Video</p>
-    </a>
+          </section>
 
-  </main>
+        <section class="grid-container">
+                  <a class="card" href="products/produkt-sonic.html" data-category="megadrive">
+                <header style="background-color: #ffd900;">Titel</header>
+                <img src="images/sonic_md.jpg" height="200" width="200" alt="Sonic the Hedgehog" />
+                <p>Zusätzlicher Text</p>
+              </a>
+                  <a class="card" href="products/chronotrigger.html" data-category="snes">
+                <header style="background-color: #ffd900;">Titel</header>
+                <img src="images/Chrono_Trigger.jpg" height="200" width="200" alt="Chrono Trigger" />
+                <p>Zusätzlicher Text</p>
+              </a>
+              <a class="card" href="products/produkt-zelda.html" data-category="n64">
+                <header style="background-color: #ffd900;">Titel</header>
+                <img src="images/zelda_n64.jpg" height="200" width="200" alt="Zelda Ocarina of Time" />
+                <p>Zusätzlicher Text</p>
+              </a>
 
-  <footer>
-    <p>Fair Play Hamm – Großer Sandweg 84, 59065 Hamm • Mo–Sa 13–19 Uhr</p>
-  </footer>
+                  <a class="card" href="products/produkt-zelda.html" data-category="n64">
+                <header style="background-color: #ffd900;">Titel</header>
+                <img src="images/zelda_n64.jpg" height="200" width="200" alt="Zelda Ocarina of Time" />
+                <p>Zusätzlicher Text</p>
+              </a>
+          </section>
 
-  <script>
+          <section class="game_section featured_bundles">
+          <div class="section_header"> <h2>Highlights</h2> </div>
+        </section>
+
+       <section class="grid-container">
+                  <a class="card" href="products/produkt-zelda.html" data-category="n64">
+              <header style="background-color: #ffd900;">Titel</header>
+              <img src="images/zelda_n64.jpg" height="200" width="200" alt="Zelda Ocarina of Time" />
+              <p>Zusätzlicher Text</p>
+            </a>
+                <a class="card" href="products/produkt-zelda.html" data-category="n64">
+              <header style="background-color: #ffd900;">Titel</header>
+              <img src="images/zelda_n64.jpg" height="200" width="200" alt="Zelda Ocarina of Time" />
+              <p>Zusätzlicher Text</p>
+            </a>
+                <a class="card"  data-category="nintendo64">
+          
+            </a>
+        </section>
+
+        </div>
+      </section>
+      
+    </div>
+
+    </div>
+
+
+
+</div>
+
+ <script>
     // Filterfunktion
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -312,6 +450,7 @@ body.light-mode .mode-toggle {
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
   </script>
+
 
 </body>
 </html>
