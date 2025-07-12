@@ -1,0 +1,78 @@
+<!--http://localhost:3000/admin.html-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Panel - Kacheln und Bilder</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1rem; max-width: 900px; margin: auto; }
+    .tile, .image-thumb { border: 1px solid #ccc; padding: 0.5rem; margin: 0.5rem; display: inline-block; vertical-align: top; cursor: pointer; }
+    .image-thumb.selected { border-color: #00f; }
+    .tiles-container { margin-top: 2rem; }
+    label { display: block; margin-top: 0.5rem; }
+    input, textarea { width: 100%; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+    .image-list { max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 0.5rem; }
+    img { max-width: 100px; max-height: 80px; display: block; }
+  </style>
+</head>
+<body>
+
+<h1>Admin Panel - Kacheln verwalten</h1>
+
+<!-- Bild Upload -->
+<section>
+  <h2>Bild hochladen</h2>
+  <input type="file" id="uploadImage" accept="image/*" />
+  <button id="uploadBtn">Hochladen</button>
+  <div id="uploadStatus"></div>
+</section>
+
+<!-- Bestehende Bilder anzeigen und auswählen -->
+<section>
+  <h2>Vorhandene Bilder auswählen</h2>
+  <div id="imageList" class="image-list"></div>
+</section>
+
+<!-- Kachel bearbeiten -->
+<section class="tiles-container">
+  <h2>Kachel bearbeiten / hinzufügen</h2>
+  <form id="tileForm">
+    <label>
+      Bild auswählen:
+      <input type="text" id="tileImage" readonly placeholder="Bild auswählen aus Liste oder hochladen" />
+    </label>
+    <label>
+      Titel:
+      <input type="text" id="tileTitle" />
+    </label>
+    <label>
+      Beschreibung:
+      <textarea id="tileText" rows="3"></textarea>
+    </label>
+    <label>
+      Farbe:
+      <input type="color" id="tileColor" value="#ffffff" />
+    </label>
+    <label>
+      Link:
+      <input type="text" id="tileLink" />
+    </label>
+    <label>
+      Kategorie:
+      <input type="text" id="tileCategory" />
+    </label>
+    <button type="submit">Kachel speichern</button>
+  </form>
+</section>
+
+<!-- Kacheln Liste -->
+<section>
+  <h2>Bestehende Kacheln</h2>
+  <div id="tilesContainer"></div>
+</section>
+
+<script src="admin.js"></script>
+</body>
+</html>
